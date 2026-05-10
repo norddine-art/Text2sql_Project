@@ -1,0 +1,8 @@
+vanna[chromadb]
+openai
+python-dotenv
+streamlit
+pandas
+plotly
+google-generativeai
+Faker

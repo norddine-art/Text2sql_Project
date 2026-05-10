@@ -1,0 +1,257 @@
+                         Université Cadi Ayyad
+                 École Supérieure de Technologie – Essaouira
+            Filière : Informatique Décisionelle et Science Des Données
+                  Département : Informatique et Mathématiques
+
+
+
+
+      RAPPORT DE PROJET DE FIN D’ÉTUDES
+                            Pour l’obtention du DUT
+
+
+
+
+ Conception et Développement d’une
+Plateforme Web de Diagnostic Médical
+  Assisté par Intelligence Artificielle
+
+
+
+Présenté par :                                              Sous la direction de :
+Abahous Nour-eddine                                      Mme. Asebriy Zahra
+Et-talib Anas
+
+
+
+
+                      Année Universitaire : 2025 – 2026
+                                      Remerciements
+
+
+
+    Nous tenons tout d’abord à remercier Dieu le Tout-Puissant, qui nous a donné la force et la
+patience d’accomplir ce modeste travail.
+    Nous remercions également Mme Zahra Asebriy, notre encadrante académique de projet
+de fin d’étude, pour ses précieux conseils et son orientation tout au long de notre travail.
+    Nous tenons à exprimer notre profonde gratitude à nos familles respectives pour leur soutien
+inconditionnel tout au long de ce projet de fin d’études. Leur encouragement moral, leur patience
+face à nos longues heures de travail, et leur appui constant ont été indispensables à la réalisation
+de ce travail. Sans leur présence bienveillante, cette réussite n’aurait pas été possible. Merci du
+fond du cœur.
+
+
+
+
+                                                 1
+                                            Résumé
+
+
+    Dans le contexte de notre travail de fin d’études à l’École Supérieure de Technologie d’Es-
+saouira,
+    Au départ, on a imaginé un outil numérique pour aider les sitoyens. Ensuite est née une
+application mobile pensée pour le diagnostic. Petit à petit, chaque fonction a pris forme. Puis
+tout s’est assemblé : interface claire, analyses précises. Quelque part entre technologie et soin,
+elle trouve sa place. Finalement, ce n’est pas juste une app, c’est un assistant au quotidien
+    portée par l’intelligence artificielle. Développée à partir du cadre React Native, elle fonctionne
+comme une application
+    grâce à une entrée manuelle des signes ressentis, le système propose instantanément un trio
+de pathologies possibles. celui qui décrit ce qu’il vit voit apparaître trois affections en lien avec
+son état. dès que les indications sont tapées, les résultats s’affichent sans délai. chaque saisie
+active aussitôt un rapprochement avec des diagnostics proches. selon les mots choisis, la liste
+change sur-le-champ. peu importe l’ordre des symptômes, l’outil adapte ses suggestions au fur
+et à mesure
+    Pour comparer six algorithmes d’apprentissage automatique, une analyse précise a eu lieu.
+Chaque méthode fut testée dans des conditions identiques. L’un après l’autre, les modèles ont
+été évalués sans favoriser aucun. À mesure que les résultats apparaissaient, les écarts se sont
+précisés. Parmi eux, certains se sont montrés plus stables. Un classement s’est dessiné à partir
+des performances répétées
+    Grâce à cette appli, pas besoin d’attendre : elle donne tout de suite les pathologies possibles.
+Chaque trouble est accompagné par un ensemble d’indices utiles. À mesure que tu progresses,
+des précisions apparaissent sans rien omettre. Un détail après l’autre, les éléments s’enchaînent
+clairement. Même ce qui semble flou devient net au fil de la lecture. L’important se dévoile petit
+à petit, jamais en bloc
+    Des médicaments sont conseillés. Par ailleurs, certaines activités corporelles peuvent aider.
+En revanche, il faut faire attention à quelques règles d’hygiène.
+    à observer.
+    Ce document décrit d’abord le cadre global ainsi que la question centrale du projet
+    Fixer les buts, suivre une démarche choisie pour créer puis juger le système, examiner pas à
+pas chaque détail technique.
+    L’idée prend forme dès qu’on commence à dessiner chaque fonction. Ensuite vient le moment
+où tout se construit pas à pas avec du code réel. Certains ajustements arrivent pendant que des
+essais sont faits encore et encore. Chaque étape vérifiée ouvre la voie vers celle d’après, sans bruit
+ni précipitation. Le résultat avance lentement mais sûrement, guidé par l’usage plutôt que par
+les plans initiaux
+    vérification, puis on passe aux résultats de l’étude avec ce qu’ils ouvrent comme pistes plus
+tard.
+
+
+
+
+                                                  2
+                                          Abstract
+
+
+This report presents the design and development of an intelligent web platform integrated with an
+AI-powered chatbot, aimed at enhancing user engagement and streamlining information retrieval.
+Leveraging the OpenAI API, the core system provides advanced natural language understanding
+within a responsive, user-centric web interface. To maximize accessibility and reach, the plat-
+form is complemented by a cross-platform mobile application developed using React Native. The
+project also strongly prioritizes user experience by incorporating dynamic features such as cus-
+tomizable dark and light themes, as well as comprehensive bilingual support. Ultimately, this
+work demonstrates the successful and scalable integration of cutting-edge AI capabilities into a
+cohesive web and mobile ecosystem.
+
+
+
+
+                                               3
+Table des matières
+
+1 Contexte, Problématique et Objectifs                                                             8
+  1.1 Contexte général . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     9
+  1.2 La problématique . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     9
+  1.3 Objectifs du projet . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    9
+      1.3.1 Objectif général . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     9
+      1.3.2 Objectifs spécifiques . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      9
+  1.4 Délimitation du projet . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    10
+
+2 Conception et Évaluation du Modèle d’Apprentissage Automatique                                  11
+  2.1 Introduction au chapitre . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    12
+  2.2 Description du dataset . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    12
+  2.3 Algorithmes de Machine Learning testés . . . . . . . . . . . . . . . . . . . . . . .        12
+      2.3.1 Régression Logistique . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       12
+      2.3.2 Arbre de Décision . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       12
+      2.3.3 Forêt Aléatoire (Random Forest) . . . . . . . . . . . . . . . . . . . . . . .         12
+      2.3.4 Naive Bayes (Gaussian) . . . . . . . . . . . . . . . . . . . . . . . . . . . .        12
+      2.3.5 Machine à Vecteurs de Support (SVM) . . . . . . . . . . . . . . . . . . . .           12
+  2.4 Métriques d’évaluation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    12
+  2.5 Résultats de la comparaison . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     13
+  2.6 Justification du choix de Naive Bayes . . . . . . . . . . . . . . . . . . . . . . . . .     13
+  2.7 Évaluation du modèle Naive Bayes avec et sans SMOTE . . . . . . . . . . . . . .             13
+      2.7.1 Comparaison synthétique . . . . . . . . . . . . . . . . . . . . . . . . . . .         13
+      2.7.2 Analyse des résultats . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     13
+      2.7.3 Décision provisoire . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     13
+  2.8 Analyse détaillée des performances par classe . . . . . . . . . . . . . . . . . . . .       14
+
+3 Analyse et Conception de l’Application Web                                                      16
+  3.1 Introduction au chapitre . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    17
+  3.2 Analyse des besoins . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   17
+      3.2.1 Besoins fonctionnels . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      17
+      3.2.2 Besoins non fonctionnels . . . . . . . . . . . . . . . . . . . . . . . . . . . .      17
+  3.3 Conception UML . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      17
+      3.3.1 Diagramme de cas d’utilisation . . . . . . . . . . . . . . . . . . . . . . . .        17
+      3.3.2 Diagramme de séquence . . . . . . . . . . . . . . . . . . . . . . . . . . . .         18
+  3.4 Intégration de n8n : Orchestration et Intelligence Artificielle . . . . . . . . . . . .     19
+  3.5 Environnement de Développement (Technologies Utilisées) . . . . . . . . . . . . .           20
+  3.6 Conclusion du chapitre . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    21
+
+
+
+
+                                                 4
+4 Réalisation de l’Application Web                                                                 22
+  4.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   23
+  4.2 Présentation des Interfaces de l’Application Web . . . . . . . . . . . . . . . . . .         23
+      4.2.1 Page d’Accueil (Home) . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        23
+      4.2.2 Page de Création de Compte (Sign Up) . . . . . . . . . . . . . . . . . . .             23
+      4.2.3 Page À Propos (About Us) . . . . . . . . . . . . . . . . . . . . . . . . . .           24
+      4.2.4 Tableau de Bord Médical (Medical Dashboard) . . . . . . . . . . . . . . .              25
+      4.2.5 Résultats de l’Analyse et Assistant IA (Results) . . . . . . . . . . . . . . .         25
+  4.3 Bonus : L’Application Mobile (React Native) . . . . . . . . . . . . . . . . . . . .          26
+  4.4 Défis, Limites et Perspectives d’Avenir . . . . . . . . . . . . . . . . . . . . . . . .      26
+      4.4.1 Défis et Limites Actuelles . . . . . . . . . . . . . . . . . . . . . . . . . . .       26
+      4.4.2 Perspectives et Prochaines Fonctionnalités . . . . . . . . . . . . . . . . . .         27
+  4.5 Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   27
+
+Conclusion Générale                                                                                28
+
+
+
+
+                                                  5
+Table des figures
+
+ 2.1   Performances par classe du modèle Bernoulli Naive Bayes – Top 20 maladies avec
+       le meilleur F1-score (à gauche) et les 20 maladies avec le plus faible F1-score (à
+       droite) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   14
+ 2.2   Matrice de confusion du modèle Bernoulli Naive Bayes pour les 25 classes les plus
+       fréquentes dans le dataset . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      15
+ 3.1   Diagramme de cas d’utilisation . . . . . . . . . . . . . . . . . . . . . . . . . . . .        18
+ 3.2   Diagramme de séquence du processus de prédiction . . . . . . . . . . . . . . . . .            18
+ 3.3   Architecture du workflow d’Intelligence Artificielle sous n8n . . . . . . . . . . . .         19
+ 4.1   Page d’accueil de la plateforme AI Medica . . . . . . . . . . . . . . . . . . . . . .         23
+ 4.2   Interface de création de compte utilisateur . . . . . . . . . . . . . . . . . . . . . .       24
+ 4.3   Page de présentation détaillant le fonctionnement et l’avertissement médical . . .            24
+ 4.4   Tableau de bord de saisie et de recherche des symptômes . . . . . . . . . . . . . .           25
+ 4.5   Affichage du diagnostic prédictif et interaction avec le Chatbot Médical . . . . . .          26
+
+
+
+
+                                                 6
+Liste des tableaux
+
+ 2.1   Performances des modèles (moyenne sur validation croisée 10-folds) . . . . . . . .   13
+ 2.2   Comparaison des performances du modèle Naive Bayes avec et sans SMOTE . . .          13
+
+
+
+
+                                             7
+           CHAPITRE 1
+
+
+Contexte, Problématique et Objectifs
+1.1     Contexte général
+    L’essor fulgurant des nouvelles technologies de l’information et de la communication a profon-
+dément transformé de nombreux domaines, dont celui de la santé. Aujourd’hui, la santé numé-
+rique (e-santé et m-santé) représente un levier majeur pour améliorer l’accès aux soins, optimiser
+les diagnostics et renforcer la prévention. Au Maroc, dans le cadre du Plan Santé 2025 et de la
+stratégie nationale de digitalisation, le ministère de la Santé encourage fortement le développe-
+ment d’outils numériques pour désengorger les structures hospitalières et rapprocher les services
+de santé des citoyens, particulièrement dans les zones rurales et les régions éloignées. L’intelli-
+gence artificielle, et plus particulièrement les algorithmes de Machine Learning, offre aujourd’hui
+des possibilités inédites pour analyser rapidement un ensemble de symptômes et proposer des
+hypothèses diagnostiques fiables. Dans ce contexte, les plateformes et applications de santé se
+multiplient dans le monde entier (Ada Health, WebMD, Babylon Health, etc.). Cependant, la
+plupart de ces solutions restent en anglais, payantes, ou nécessitent une connexion internet per-
+manente, ce qui limite leur utilité pour une grande partie de la population marocaine.
+
+
+1.2     La problématique
+    Malgré les progrès réalisés, plusieurs défis persistent :
+    — L’accès au diagnostic médical reste difficile et chronophage dans de nombreuses régions
+       du Maroc.
+    — Les patients hésitent souvent à consulter un médecin pour des symptômes légers, ce qui
+       peut entraîner une aggravation des pathologies.
+    — Il existe un manque d’outils simples, gratuits, en langue française/arabe et facilement
+       accessibles via un navigateur web pour une première orientation diagnostique.
+    — La plupart des solutions existantes ne fournissent pas de recommandations concrètes (mé-
+       dicaments, exercices, précautions) après la prédiction.
+Ces constats nous ont conduits à nous interroger sur la possibilité de développer une plateforme
+web accessible, rapide et fiable, capable d’aider l’utilisateur à mieux comprendre ses symptômes
+et à prendre les premières mesures appropriées.
+
+
+1.3     Objectifs du projet
+   Pour répondre à cette problématique, nous avons fixé les objectifs suivants :
+
+1.3.1    Objectif général
+    Concevoir et développer une application web intelligente de diagnostic médical assisté par
+intelligence artificielle, permettant à l’utilisateur de saisir ses symptômes et d’obtenir les trois
+maladies les plus probables ainsi que des recommandations adaptées.
+
+1.3.2    Objectifs spécifiques
+   — Développer une interface utilisateur intuitive avec des technologies web modernes pour
+     une expérience fluide sur n’importe quel appareil (ordinateur, tablette ou smartphone) ;
+   — Construire, entraîner et comparer plusieurs modèles de Machine Learning afin de sélec-
+     tionner le plus performant et le plus léger (Naive Bayes) ;
+   — Intégrer le modèle de prédiction au sein de l’application web pour obtenir une réponse en
+     temps réel ;
+   — Fournir, pour chaque maladie prédite, une liste de médicaments recommandés, des exer-
+     cices physiques et des précautions sanitaires ;
+
+
+                                                 9
+

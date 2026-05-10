@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>COPAG SQL Assistant - Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error-container": "#ffdad6",
+                      "primary": "#00342b",
+                      "on-tertiary-container": "#a5b2ba",
+                      "on-primary-container": "#7ebdac",
+                      "primary-fixed": "#afefdd",
+                      "tertiary-container": "#39454b",
+                      "on-tertiary-fixed": "#111d23",
+                      "error": "#ba1a1a",
+                      "on-primary": "#ffffff",
+                      "secondary": "#785900",
+                      "background": "#f7f9fb",
+                      "primary-fixed-dim": "#94d3c1",
+                      "on-error": "#ffffff",
+                      "inverse-surface": "#2d3133",
+                      "on-secondary-fixed-variant": "#5b4300",
+                      "surface-bright": "#f7f9fb",
+                      "on-surface-variant": "#3f4945",
+                      "on-secondary": "#ffffff",
+                      "surface-container-low": "#f2f4f6",
+                      "surface-variant": "#e0e3e5",
+                      "tertiary": "#232f35",
+                      "inverse-primary": "#94d3c1",
+                      "on-error-container": "#93000a",
+                      "on-background": "#191c1e",
+                      "on-surface": "#191c1e",
+                      "surface-container-highest": "#e0e3e5",
+                      "secondary-fixed-dim": "#fabd00",
+                      "tertiary-fixed-dim": "#bbc8d0",
+                      "outline": "#707975",
+                      "surface-tint": "#29695b",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed": "#d7e4ec",
+                      "on-secondary-fixed": "#261a00",
+                      "on-primary-fixed": "#00201a",
+                      "surface-container-high": "#e6e8ea",
+                      "primary-container": "#004d40",
+                      "on-primary-fixed-variant": "#065043",
+                      "surface-container-lowest": "#ffffff",
+                      "outline-variant": "#bfc9c4",
+                      "on-secondary-container": "#6c5000",
+                      "surface-container": "#eceef0",
+                      "surface": "#f7f9fb",
+                      "on-tertiary-fixed-variant": "#3c494f",
+                      "secondary-fixed": "#ffdf9e",
+                      "secondary-container": "#fdc003",
+                      "surface-dim": "#d8dadc"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "gutter": "24px",
+                      "sm": "8px",
+                      "container-max": "1280px",
+                      "unit": "4px",
+                      "md": "16px",
+                      "margin-desktop": "40px",
+                      "lg": "24px",
+                      "xl": "48px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "Geist"
+                      ],
+                      "headline-md": [
+                              "Geist"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "data-mono": [
+                              "Geist"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Geist"
+                      ],
+                      "headline-xl": [
+                              "Geist"
+                      ],
+                      "headline-lg": [
+                              "Geist"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "data-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-xl": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 52, 43, 0.08);
+        }
+        .glass-panel-heavy {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 52, 43, 0.12);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen">
+<!-- SideNavBar -->
+<aside class="bg-surface h-screen w-64 fixed left-0 top-0 border-r border-outline-variant/30 backdrop-blur-xl shadow-sm flex flex-col py-lg px-md z-50">
+<div class="flex items-center gap-sm mb-xl">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dataset</span>
+</div>
+<div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary leading-none">COPAG SQL</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Data Intelligence</p>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-sm px-md rounded-lg font-body-md text-body-md font-medium flex items-center justify-center gap-sm mb-xl hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined">add</span>
+            New Query
+        </button>
+<nav class="flex-1 flex flex-col gap-sm">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-primary hover:bg-primary-container/10 transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">business</span>
+<span class="font-body-md text-body-md font-medium">Agencies</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-primary font-bold border-r-2 border-primary bg-primary-container/5 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-md text-body-md">Sectors</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-primary hover:bg-primary-container/10 transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">show_chart</span>
+<span class="font-body-md text-body-md font-medium">Ranges</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-primary hover:bg-primary-container/10 transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-body-md text-body-md font-medium">Articles</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-primary hover:bg-primary-container/10 transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-body-md text-body-md font-medium">History</span>
+</a>
+</nav>
+<div class="mt-auto pt-lg border-t border-outline-variant/30 flex flex-col gap-sm">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-primary hover:bg-primary-container/10 transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md font-medium">Admin Settings</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-primary hover:bg-primary-container/10 transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-body-md text-body-md font-medium">User Profile</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="bg-surface/80 fixed top-0 right-0 w-[calc(100%-16rem)] z-40 backdrop-blur-md border-b border-outline-variant/20 flex justify-between items-center h-16 px-gutter">
+<div class="flex items-center gap-lg">
+<div class="font-headline-md text-headline-md font-semibold text-primary">SQL Assistant</div>
+<!-- Search Bar (on_left logic as requested by JSON, simplified) -->
+<div class="relative focus-within:ring-1 focus-within:ring-primary rounded-lg">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant/70">search</span>
+<input class="bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 font-body-sm text-body-sm text-on-surface w-64 focus:ring-0" placeholder="Search insights..." type="text"/>
+</div>
+</div>
+<nav class="flex items-center gap-xl">
+<a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="#">Dashboard</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all" href="#">Query Builder</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all" href="#">Reports</a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container/20 flex items-center justify-center border border-primary/10 overflow-hidden">
+<img alt="Administrator Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0irmKPIFx5Csde8AtHr3ilGTd72jCE4sdKH6Z8R45aLyW89DkclkWax6sRxpgOC6y-u9NNu8F62mJrfGKNVrjQ7mN-RZCkDS4tZeDuaqKv1Wr9afIaHwiwPSBH6UDTRh5GSkmsmFPfnQ_yxoVLreemCPJ9eI0xqwgP0GQk5YMtmPXSC6E2XYOrWir1xF_zIWPakzwDRJXHUTGBeMr3ZH_lrN-pr9nSTvQVXC8uE6YX9hOtDRWfHUyLA4oTYrsipdlbmeK_gZYj8kq"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 pt-24 px-gutter pb-xl max-w-container-max mx-auto">
+<!-- Query Header -->
+<div class="mb-lg flex justify-between items-start">
+<div class="max-w-3xl">
+<div class="flex items-center gap-sm mb-xs">
+<span class="material-symbols-outlined text-primary text-sm">chat_bubble</span>
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-wider">Natural Language Query</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-on-background">"Show me total production volume by sector for Q3 2023"</h2>
+</div>
+<div class="flex gap-sm">
+<button class="px-md py-sm rounded border border-outline-variant text-primary font-body-sm text-body-sm flex items-center gap-xs hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm">edit</span> Edit Query
+                </button>
+<button class="px-md py-sm rounded bg-primary text-on-primary font-body-sm text-body-sm flex items-center gap-xs hover:bg-primary/90 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-sm">save</span> Save Report
+                </button>
+</div>
+</div>
+<!-- 4 Metric Cards (TL;DR First) -->
+<div class="grid grid-cols-4 gap-lg mb-lg">
+<div class="glass-panel-heavy rounded-xl p-md flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Total Vol</span>
+<div class="mt-sm">
+<span class="font-headline-lg text-headline-lg text-primary">1.24M</span>
+<span class="font-data-mono text-data-mono text-on-surface-variant ml-xs">tons</span>
+</div>
+<div class="mt-xs text-secondary-container font-body-sm text-body-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm">trending_up</span> +5.2% vs Q2
+                </div>
+</div>
+<div class="glass-panel-heavy rounded-xl p-md flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Variation</span>
+<div class="mt-sm">
+<span class="font-headline-lg text-headline-lg text-primary">+12%</span>
+</div>
+<div class="mt-xs text-on-surface-variant font-body-sm text-body-sm">
+                    YoY Growth
+                </div>
+</div>
+<div class="glass-panel-heavy rounded-xl p-md flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Top Sector</span>
+<div class="mt-sm">
+<span class="font-headline-lg text-headline-lg text-primary">Citrus</span>
+</div>
+<div class="mt-xs text-on-surface-variant font-body-sm text-body-sm">
+                    42% of total volume
+                </div>
+</div>
+<div class="glass-panel-heavy rounded-xl p-md flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Active Parcels</span>
+<div class="mt-sm">
+<span class="font-headline-lg text-headline-lg text-primary">8,432</span>
+</div>
+<div class="mt-xs text-on-surface-variant font-body-sm text-body-sm">
+                    Across 5 regions
+                </div>
+</div>
+</div>
+<!-- Split Screen: Chart & AI Insight -->
+<div class="grid grid-cols-3 gap-lg mb-lg h-96">
+<!-- Chart Area -->
+<div class="col-span-2 glass-panel rounded-xl p-lg flex flex-col">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-md text-headline-md text-on-background">Volume Distribution</h3>
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">more_vert</span></button>
+</div>
+<div class="flex-1 w-full bg-surface-container-lowest rounded border border-outline-variant/20 relative overflow-hidden flex items-end justify-around px-md pb-md pt-xl gap-sm">
+<!-- Faux Bar Chart -->
+<div class="w-full h-[80%] bg-primary/80 rounded-t relative group cursor-pointer">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-inverse-surface text-inverse-on-surface text-xs py-1 px-2 rounded transition-opacity">Citrus</div>
+</div>
+<div class="w-full h-[60%] bg-primary/60 rounded-t relative group cursor-pointer">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-inverse-surface text-inverse-on-surface text-xs py-1 px-2 rounded transition-opacity">Vegetables</div>
+</div>
+<div class="w-full h-[45%] bg-primary/40 rounded-t relative group cursor-pointer">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-inverse-surface text-inverse-on-surface text-xs py-1 px-2 rounded transition-opacity">Grains</div>
+</div>
+<div class="w-full h-[30%] bg-primary/20 rounded-t relative group cursor-pointer">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-inverse-surface text-inverse-on-surface text-xs py-1 px-2 rounded transition-opacity">Dairy</div>
+</div>
+</div>
+<div class="flex justify-around mt-sm font-label-caps text-label-caps text-on-surface-variant">
+<span>Citrus</span>
+<span>Vegetables</span>
+<span>Grains</span>
+<span>Dairy</span>
+</div>
+</div>
+<!-- AI Insight Card -->
+<div class="col-span-1 glass-panel-heavy rounded-xl p-lg border-l-4 border-l-secondary-container flex flex-col">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-secondary-container">auto_awesome</span>
+<h3 class="font-headline-md text-headline-md text-on-background">AI Insight</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant flex-1">
+                    The Citrus sector has outperformed expectations by 15% this quarter, largely driven by optimized irrigation schedules in the Southern region. Conversely, Grains show a slight dip (-2%) compared to historical averages for Q3, suggesting a need to review fertilizer allocations before the next cycle.
+                </p>
+<button class="mt-auto self-start text-primary font-label-caps text-label-caps flex items-center gap-xs hover:underline">
+                    View Full Analysis <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Data Table -->
+<div class="glass-panel rounded-xl overflow-hidden mb-xl">
+<div class="p-md border-b border-outline-variant/20 flex justify-between items-center bg-surface-container-low/50">
+<h3 class="font-headline-md text-headline-md text-on-background">Detailed Sector Data</h3>
+<div class="flex gap-sm">
+<button class="px-sm py-xs rounded text-on-surface-variant hover:bg-surface-variant transition-colors flex items-center gap-xs font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-sm">filter_list</span> Filter
+                    </button>
+<button class="px-sm py-xs rounded text-on-surface-variant hover:bg-surface-variant transition-colors flex items-center gap-xs font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-sm">download</span> Export
+                    </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/20 bg-surface-container-lowest font-label-caps text-label-caps text-on-surface-variant">
+<th class="py-sm px-md font-normal cursor-pointer hover:bg-surface-variant/50">Sector <span class="material-symbols-outlined text-[10px] align-middle">arrow_downward</span></th>
+<th class="py-sm px-md font-normal cursor-pointer hover:bg-surface-variant/50">Volume (Tons)</th>
+<th class="py-sm px-md font-normal cursor-pointer hover:bg-surface-variant/50">YoY Var</th>
+<th class="py-sm px-md font-normal cursor-pointer hover:bg-surface-variant/50">Active Parcels</th>
+<th class="py-sm px-md font-normal cursor-pointer hover:bg-surface-variant/50">Status</th>
+</tr>
+</thead>
+<tbody class="font-data-mono text-data-mono text-on-surface">
+<tr class="border-b border-outline-variant/10 hover:bg-primary/5 transition-colors">
+<td class="py-md px-md">Citrus</td>
+<td class="py-md px-md">520,800</td>
+<td class="py-md px-md text-primary">+15.2%</td>
+<td class="py-md px-md">3,102</td>
+<td class="py-md px-md"><span class="px-2 py-1 bg-primary/10 text-primary rounded-full text-[10px] font-bold uppercase tracking-wider">Optimal</span></td>
+</tr>
+<tr class="border-b border-outline-variant/10 hover:bg-primary/5 transition-colors">
+<td class="py-md px-md">Vegetables</td>
+<td class="py-md px-md">380,450</td>
+<td class="py-md px-md text-primary">+8.4%</td>
+<td class="py-md px-md">2,840</td>
+<td class="py-md px-md"><span class="px-2 py-1 bg-primary/10 text-primary rounded-full text-[10px] font-bold uppercase tracking-wider">Optimal</span></td>
+</tr>
+<tr class="border-b border-outline-variant/10 hover:bg-primary/5 transition-colors">
+<td class="py-md px-md">Grains</td>
+<td class="py-md px-md">210,000</td>
+<td class="py-md px-md text-error">-2.1%</td>
+<td class="py-md px-md">1,500</td>
+<td class="py-md px-md"><span class="px-2 py-1 bg-error-container text-error rounded-full text-[10px] font-bold uppercase tracking-wider">Review</span></td>
+</tr>
+<tr class="border-b border-outline-variant/10 hover:bg-primary/5 transition-colors">
+<td class="py-md px-md">Dairy</td>
+<td class="py-md px-md">128,750</td>
+<td class="py-md px-md text-primary">+1.0%</td>
+<td class="py-md px-md">990</td>
+<td class="py-md px-md"><span class="px-2 py-1 bg-surface-variant text-on-surface-variant rounded-full text-[10px] font-bold uppercase tracking-wider">Stable</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-sm text-center border-t border-outline-variant/20">
+<button class="text-on-surface-variant hover:text-primary font-label-caps text-label-caps flex items-center justify-center w-full gap-xs transition-colors">
+<span class="material-symbols-outlined text-sm">expand_more</span> View All Rows
+                </button>
+</div>
+</div>
+<!-- History Section (Collapsed) -->
+<div class="glass-panel rounded-xl p-md flex items-center justify-between cursor-pointer hover:bg-surface-variant/20 transition-colors">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant">history</span>
+<span class="font-headline-md text-headline-md text-on-background text-lg">Previous Queries</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</div>
+</main>
+</body></html>
